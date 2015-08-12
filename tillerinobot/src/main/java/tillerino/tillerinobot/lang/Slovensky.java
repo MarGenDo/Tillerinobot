@@ -16,34 +16,34 @@ import tillerino.tillerinobot.RecommendationsManager.Recommendation;
  * messages are required, I'll use the English version in all translations and
  * notify the authors.
  * 
- * @author Tillerino tillmann.gaida@gmail.com https://github.com/Tillerino https://osu.ppy.sh/u/2070907
+ * @author https://osu.ppy.sh/u/3340086 https://github.com/MarGenDo
  */
 public class Default implements Language {
 	static final Random rnd = new Random();
 
 	@Override
 	public String unknownBeatmap() {
-		return "I'm sorry, I don't know that map. It might be very new, very hard, unranked or not standard osu mode.";
+		return "Prepáč, ale nepoznám túto mapu. Môže byť nová, veľmi ťažká, neranknutá alebo nie je osu! standard.";
 	}
 
 	@Override
 	public String internalException(String marker) {
-		return "Ugh... Looks like human Tillerino screwed up my wiring."
-				+ " If he doesn't notice soon, could you [https://github.com/Tillerino/Tillerinobot/wiki/Contact inform him]? (reference "
+		return "Ups... Vyzerá to, že ľudský Tillerino niečo pokazil."
+				+ " Ak si to rýchlo nevšimne, mohol by si ho [https://github.com/Tillerino/Tillerinobot/wiki/Contact informovať]? (reference "
 				+ marker + ")";
 	}
 
 	@Override
 	public String externalException(String marker) {
-		return "What's going on? I'm only getting nonsense from the osu server. Can you tell me what this is supposed to mean? 0011101001010000"
-				+ " Human Tillerino says that this is nothing to worry about, and that we should try again."
-				+ " If you're super worried for some reason, you can [https://github.com/Tillerino/Tillerinobot/wiki/Contact tell him] about it. (reference "
+		return "Čo sa deje? Dostávam nezmysly z osu! serveru. Môžeš mi vysvetliť, čo toto znamená? 0011101001010000"
+				+ " Ľudský Tillerino hovorí, že sa netreba ničoho obávať a mali by sme to skúsiť znovu."
+				+ " Ak sa z nejakého dôvodu veľmi obávaš, môžeš mu o tom [https://github.com/Tillerino/Tillerinobot/wiki/Contact povedať]. (reference "
 				+ marker + ")";
 	}
 
 	@Override
 	public String noInformationForModsShort() {
-		return "no data for requested mods";
+		return "Žiadne data pre požadované mody.";
 	}
 
 	@Override
@@ -51,19 +51,19 @@ public class Default implements Language {
 		if (inactiveTime < 60 * 1000) {
 			user.message("beep boop");
 		} else if (inactiveTime < 24 * 60 * 60 * 1000) {
-			user.message("Welcome back, " + apiUser.getUserName() + ".");
+			user.message("Vitaj späť, " + apiUser.getUserName() + ".");
 		} else if (inactiveTime > 7l * 24 * 60 * 60 * 1000) {
 			user.message(apiUser.getUserName() + "...");
-			user.message("...is that you? It's been so long!");
-			user.message("It's good to have you back. Can I interest you in a recommendation?");
+			user.message("...si to ty? Už je to nejaká doba!");
+			user.message("Je super mať ťa späť! Môžem ti odporúčať nejakú mapu?");
 		} else {
 			String[] messages = {
-					"you look like you want a recommendation.",
-					"how nice to see you! :)",
-					"my favourite human. (Don't tell the other humans!)",
-					"what a pleasant surprise! ^.^",
-					"I was hoping you'd show up. All the other humans are lame, but don't tell them I said that! :3",
-					"what do you feel like doing today?",
+					"Vyzeráš, že chceš odporúčať mapu.",
+					"Rád ťa vidím! :)",
+					"Môj obľúbený človek. (Nehovor to ostatným ľuďom!)",
+					"To je ale príjemné prekvapenie! ^.^",
+					"Dúfal som, že sa ukážeš. Všetci ostatní ľudia sú lamy, ale nehovor im, že som to povedal! :3",
+					"Čo si myslíš, že by si dnes mohol robiť?",
 			};
 
 			Random random = new Random();
@@ -76,33 +76,33 @@ public class Default implements Language {
 
 	@Override
 	public String unknownCommand(String command) {
-		return "Unknown command \"" + command
-				+ "\". Type !help if you need help!";
+		return "Neznámy príkaz \"" + command
+				+ "\". Zadaj !help ak chceš poradiť!";
 	}
 
 	@Override
 	public String noInformationForMods() {
-		return "Sorry, I can't provide information for those mods at this time.";
+		return "Prepáč, ale nemôžem ti poskytnúť informácie pre tieto mody. Skús to neskôr.";
 	}
 
 	@Override
 	public String malformattedMods(String mods) {
-		return "Those mods don't look right. Mods can be any combination of DT HR HD HT EZ NC FL SO NF. Combine them without any spaces or special chars. Example: !with HDHR, !with DTEZ";
+		return "Tieto mody nevyzerajú správne. Módy môžu byť rôzne kombinácie DT HR HD HT EZ NC FL SO NF. Kombinuj ich bez čiarok alebo špeciálnych znakov. Príklad: !with HDHR, !with DTEZ";
 	}
 
 	@Override
 	public String noLastSongInfo() {
-		return "I don't remember giving you any song info...";
+		return "Nepamätám si, že by som ti dával nejaké informácie o mape...";
 	}
 
 	@Override
 	public String tryWithMods() {
-		return "Try this map with some mods!";
+		return "Vyskúšaj túto mapu s nejakými modmi!";
 	}
 
 	@Override
 	public String tryWithMods(List<Mods> mods) {
-		return "Try this map with " + Mods.toShortNamesContinuous(mods) + "!";
+		return "Vyskúšaj túto mapu s " + Mods.toShortNamesContinuous(mods) + "!";
 	}
 
 	/**
@@ -117,59 +117,59 @@ public class Default implements Language {
 	 * @return
 	 */
 	public String unresolvableName(String exceptionMarker, String name) {
-		return "Your name is confusing me. Are you banned? If not, pls [https://github.com/Tillerino/Tillerinobot/wiki/Contact contact Tillerino]. (reference "
+		return "Som zmätený s tvojho mena. Máš ban? Ak nie, prosím [https://github.com/Tillerino/Tillerinobot/wiki/Contact kontaktuj Tillerina]. (reference "
 				+ exceptionMarker + ")";
 	}
 
 	@Override
 	public String excuseForError() {
-		return "I'm sorry, there was this beautiful sequence of ones and zeros and I got distracted. What did you want again?";
+		return "Odpusť mi! Nechal som sa rozrušiť týmito úžasnými jednotkami a nulami. Čo si chcel?";
 	}
 
 	@Override
 	public String complaint() {
-		return "Your complaint has been filed. Tillerino will look into it when he can.";
+		return "Tvoja sťažnosť bola vyplnená! Tillerino sa na to pozrie ak bude môcť.";
 	}
 
 	@Override
 	public void hug(final IRCBotUser user, OsuApiUser apiUser) {
-		user.message("Come here, you!");
+		user.message("Poď sem, ty!");
 		user.action("hugs " + apiUser.getUserName());
 	}
 
 	@Override
 	public String help() {
-		return "Hi! I'm the robot who killed Tillerino and took over his account. Just kidding, but I do use the account a lot."
-				+ " [https://twitter.com/Tillerinobot status and updates]"
-				+ " - [https://github.com/Tillerino/Tillerinobot/wiki commands]"
+		return "Ahoj! Ja som ten robot čo zabil Tillerina a prevzal jeho účet. Robím si srandu, len ho používam."
+				+ " [https://twitter.com/Tillerinobot status a novinky]"
+				+ " - [https://github.com/Tillerino/Tillerinobot/wiki príkazy]"
 				+ " - [http://ppaddict.tillerino.org/ ppaddict]"
-				+ " - [https://github.com/Tillerino/Tillerinobot/wiki/Contact contact]";
+				+ " - [https://github.com/Tillerino/Tillerinobot/wiki/Contact kontakt]";
 	}
 
 	@Override
 	public String faq() {
-		return "[https://github.com/Tillerino/Tillerinobot/wiki/FAQ Frequently asked questions]";
+		return "[https://github.com/Tillerino/Tillerinobot/wiki/FAQ Často kladené otázky]";
 	}
 
 	@Override
 	public String featureRankRestricted(String feature, int minRank, OsuApiUser user) {
-		return "Sorry, at this point " + feature + " is only available for players who have surpassed rank " + minRank + ".";
+		return "Prepáč, ale v tomto momente je " + feature + " dostupný len pre hráčov čo dosiahli rank " + minRank + ".";
 	}
 
 	@Override
 	public String mixedNomodAndMods() {
-		return "What do you mean nomod with mods?";
+		return "Čo tým myslíš? Bez modov a s modmi?";
 	}
 
 	@Override
 	public String outOfRecommendations() {
-		return "I've recommended everything that I can think of."
-				+ " Try other recommendation options or use !reset. If you're not sure, check !help.";
+		return "Už som ti odporúčal všetko, na čo si dokážem spomenúť."
+				+ " Skús iné odporúčania alebo použi !reset. Ak si si neistý, použi !help.";
 	}
 
 	@Override
 	public String notRanked() {
-		return "Looks like that beatmap is not ranked.";
+		return "Vyzerá to, že táto mapa nie je ranknutá.";
 	}
 
 	@Override
@@ -202,7 +202,7 @@ public class Default implements Language {
 
 	@Override
 	public String invalidAccuracy(String acc) {
-		return "Invalid accuracy: \"" + acc + "\"";
+		return "Nesprávna accuracy: \"" + acc + "\"";
 	}
 
 	@Override
@@ -232,40 +232,40 @@ public class Default implements Language {
 		 * P.S. you can put a link to your profile into the line like this:
 		 * [https://osu.ppy.sh/u/2070907 Tillerino]
 		 */
-		user.message("So you like me just the way I am :)");
+		user.message("[https://osu.ppy.sh/u/3340086 MarGenDo] mi pomohol naučiť sa Slovensky");
 	}
 
 	@Override
 	public String invalidChoice(String invalid, String choices) {
-		return "I'm sorry, but \"" + invalid
-				+ "\" does not compute. Try these: " + choices + "!";
+		return "Prepáč, ale \"" + invalid
+				+ "\" sa nepočíta. Skús toto: " + choices + "!";
 	}
 
 	@Override
 	public String setFormat() {
-		return "The syntax to set a parameter is !set option value. Try !help if you need more pointers.";
+		return "Syntax pre nastavenia parametru je !set možnosť hodnota. Napíš !help ak potrebuješ poradiť.";
 	}
 	
 	StringShuffler doSomething = new StringShuffler(rnd);
 	
 	@Override
 	public String apiTimeoutException() {
-		final String message = "The osu! servers are super slow right now, so there's nothing I can do for you at this moment. ";
+		final String message = "Osu! server je práve veľmi pomalý, takže pre teba v tomto momente nemôžem nič urobiť. ";
 		return message + doSomething.get(
-				"Say... When was the last time you talked to your grandmother?",
-				"How about you clean your room and then ask again?",
-				"I bet you'd love to take a walk right now. You know... outside?",
-				"I just know that you have a bunch of other things to do. How about just doing them now?",
-				"You look like you need a nap anyway.",
-				"But check out this super interesting page on [https://en.wikipedia.org/wiki/Special:Random wikipedia]!",
-				"Let's check if anybody good is [http://www.twitch.tv/directory/game/Osu! streaming] right now!",
-				"Look, here is another [http://dagobah.net/flash/Cursor_Invisible.swf game] that you probably suck at!",
-				"This should give you plenty of time to study [https://github.com/Tillerino/Tillerinobot/wiki my manual].",
-				"Don't worry, these [https://www.reddit.com/r/osugame dank memes] should pass the time.",
-				"While you're bored, give [http://gabrielecirulli.github.io/2048/ 2048] a try!",
-				"Fun question: If your harddrive crashed right now, how much of your personal data would be lost forever?",
-				"So... Have you ever tried the [https://www.google.de/search?q=bring%20sally%20up%20push%20up%20challenge sally up push up challenge]?",
-				"You can go do something else or we can just stare into each others eyes. Silently."
+				"Povedz... Kedy si sa naposledy rozprával so starou mamou?",
+				"Čo keby si si upratal izbu a potom sa spýtal znovu?",
+				"Stavím sa, že by si sa veľmi rád prešiel. Veď vieš... von.",
+				"Viem, že máš aj mnoho iných vecí, čo by si mohol robiť. čo keby si ich spravil teraz?",
+				"Vyzeráš, že aj tak si potrebuješ oddýchnuť.",
+				"Ale pozri si túto super zaujímavú stránku na [https://en.wikipedia.org/wiki/Special:Random wikipédií]!",
+				"Pozri sa, či niekto dobrý práve [http://www.twitch.tv/directory/game/Osu! streamuje]!",
+				"Pozri sa, tu je ďalšia [http://dagobah.net/flash/Cursor_Invisible.swf hra], v ktorej si lama!",
+				"Teraz máš dosť času na to, aby si si preštudoval [https://github.com/Tillerino/Tillerinobot/wiki môj manuál].",
+				"Neboj sa! Tieto [https://www.reddit.com/r/osugame dank memes] ti ukrátia čas.",
+				"Ak sa nudíš, skús [http://gabrielecirulli.github.io/2048/ 2048]!",
+				"Otázka na zamyslenie: Ak by sa tvoj hard-disk práve pokazil, koľko osobných dát by si navždy stratil?",
+				"Takže... Skúsil si niekedy [https://www.google.de/search?q=bring%20sally%20up%20push%20up%20challenge sally up push up challenge]?",
+				"Môžeš ísť robiť niečo iné alebo sa proste budeme pozerať navzájom do očí. Potichu."
 				);
 	}
 }
